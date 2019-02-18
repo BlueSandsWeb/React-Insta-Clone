@@ -1,0 +1,21 @@
+.search-bar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 125px;
+  border-bottom: 2px solid gray;
+  width: 100%;
+  padding: 40px;
+}
+
+.logo-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
