@@ -1,6 +1,8 @@
 import React from 'react';
 import './PostContainer.css';
 
+import CommentSection from '../CommentSection/CommentSection';
+
 function PostContainer(props) {
   return (
     <div className="post-container">
@@ -12,20 +14,7 @@ function PostContainer(props) {
         <img className="post-img" src="https://images.unsplash.com/photo-1444393299901-d5270ace5365?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt=""/>
       </div>
       <div>
-        <div className="comments-container">
-            <p><span>hrt</span> <span>com</span></p>
-            <p className="likes">373 likes</p>
-            <p className="comments-main-text"><span className="comment-username">Philzcoffee</span> We've got more than just delicious coffees to offer at our shops. Don't forget to check out our selection of locally sou <span className="comment-read-more">more</span></p>
-            <p className="comment"><span className="comment-username">biancasaurus_</span> T-minus a month until Big/Little/GLil coffee  dates!!! heart @tiffany_monroy @msafransky</p>
-            <p className="comment"><span className="comment-username">martinseludo</span> :)</p>
-            <p className="comment-timestamp">2 Hours Ago</p>
-            <hr className="comment-add-divider" />
-            <form action="" className='comments-add-form'>
-              <input type="text" className="comments-add-input" placeholder="Add a comment..."/>
-              <span className="comments-add-menu">...</span>
-            </form>
-
-        </div>
+        <CommentSection />
       </div>
 
     </div>
