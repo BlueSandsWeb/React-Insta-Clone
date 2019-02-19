@@ -3,6 +3,8 @@
     "@fortawesome/fontawesome-free": "^5.7.2"
   },
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.7.2"
+    "@fortawesome/free-brands-svg-icons": "^5.7.2",
+    "prop-types": "^15.7.2",
+    "uuid": "^3.3.2"
   }
 }

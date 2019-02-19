@@ -1,14 +1,18 @@
 import React from "react";
+import uuidv4 from "uuid/v4";
+import PropTypes from 'prop-types';
 
 function CommentSection(props) {
   return (
     <div className="comments-container">
       <p><span>hrt</span> <span>com</span></p>
-      <p className="likes">373 likes</p>
-      <p className="comments-main-text"><span className="comment-username">Philzcoffee</span> We've got more than just delicious coffees to offer at our shops. Don't forget to check out our selection of locally sou <span className="comment-read-more">more</span></p>
-      <p className="comment"><span className="comment-username">biancasaurus_</span> T-minus a month until Big/Little/GLil coffee  dates!!! heart @tiffany_monroy @msafransky</p>
-      <p className="comment"><span className="comment-username">martinseludo</span> :)</p>
-      <p className="comment-timestamp">2 Hours Ago</p>
+      <p className="likes">{props.data.likes} likes</p>
+      {props.data.comments.map((comment) => {
+        return (
+          <p key={uuidv4()} className="comment"><span className="comment-username">{comment.username}</span> {comment.text}</p>
+        );
+      })}
+      <p className="comment-timestamp">{props.data.timestamp}</p>
       <hr className="comment-add-divider" />
       <form action="" className='comments-add-form'>
         <input type="text" className="comments-add-input" placeholder="Add a comment..." />
@@ -16,6 +20,19 @@ function CommentSection(props) {
       </form>
     </div>
   );
+}
+
+CommentSection.propTypes = {
+  data: PropTypes.shape({
+    likes: PropTypes.number,
+    timestamp: PropTypes.string,
+    comments: PropTypes.arrayOf(
+      PropTypes.shape({
+        username: PropTypes.string,
+        text: PropTypes.string,
+      })
+    )
+  })
 }
 
 export default CommentSection;
