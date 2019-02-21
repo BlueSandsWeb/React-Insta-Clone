@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 import dummyData from './dummy-data';
-import uuidv4 from "uuid/v4";
 
 import SearchBar from './components/SearchBar/SearchBar';
-import PostContainer from './components/PostContainer/PostContainer';
+import PostsPage from './components/PostsPage/PostsPage';
+import authenticate from './components/authentication/authentication';
+import LoginPage from './components/LoginPage/LoginPage';
+
+const Authenticated = authenticate(PostsPage)(LoginPage);
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       data: [],
+      user: '',
+      pass: '',
+      usrLoggedIn: false,
     }
   }
 
@@ -18,20 +24,20 @@ class App extends Component {
     this.setState({ data: dummyData })
   }
 
+  login = (e) => {
+    e.preventDefault();
+    console.log("Login")
+  }
+
   render() {
     return (
       <div className="App">
         <SearchBar />
-        <div className="post-container">
-          {this.state.data.map((data) => {
-            return (
-              <PostContainer key={uuidv4()} postData={data} />
-            );
-          })}
-        </div>
+        <Authenticated data={this.state.data} login={this.login}/>
       </div>
     );
   }
 }
+
 
 export default App;

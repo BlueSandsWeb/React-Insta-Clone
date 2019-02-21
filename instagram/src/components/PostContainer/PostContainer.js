@@ -25,15 +25,18 @@ class PostContainer extends React.Component {
 
   addComment = (e) => {
     e.preventDefault();
+
     const newComment = {
       username: 'testUser',
       text: this.state.addCommentsInput,
     }
+
     this.setState({
       commentsArr: [...this.state.commentsArr, newComment],
       addCommentsInput: ''
     })
   }
+
   addLike = () => {
     if(this.state.liked === false){
       this.setState({
@@ -66,10 +69,12 @@ class PostContainer extends React.Component {
 
           <p className="comment-timestamp">{this.state.postData.timestamp}</p>
           <hr className="comment-add-divider" />
+
           <form onSubmit={this.addComment} className='comments-add-form'>
             <input type="text" name="addCommentsInput" value={this.state.addCommentsInput} className="comments-add-input" onChange={this.handleChanges} placeholder="Add a comment..." />
             <span className="comments-add-menu"><i className="fas fa-ellipsis-h"></i></span>
           </form>
+
         </div>
       </div>
 
