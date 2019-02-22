@@ -3,7 +3,7 @@ import './SearchBar.css';
 
 function SearchBar(props) {
   return (
-    <div className="header">
+    <div className="navbar">
       <div className="logo-area">
         <i className="fab fa-instagram logo"></i>
         <img className="insta-name" src="https://fontmeme.com/images/instagram-new-logo.png" alt=""/>
